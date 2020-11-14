@@ -2,17 +2,16 @@ package main
 
 import "fmt"
 
-func sum(s []int, c chan int){
+func sum(s []int, c chan int) {
 	sum := 0
-	for _, v := range s{
+	for _, v := range s {
 		sum += v
 	}
 	c <- sum
 }
 
-
-func main(){
-	s := []int {7, 2, 8, -9 ,5, 0, 1}
+func main() {
+	s := []int{7, 2, 8, -9, 5, 0, 1}
 
 	c := make(chan int)
 	go sum(s[:len(s)/2], c)

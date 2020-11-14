@@ -2,13 +2,11 @@ package main
 
 import "fmt"
 
-
-type Phone interface{
+type Phone interface {
 	call()
 }
 
-
-type HWPhone struct{
+type HWPhone struct {
 }
 
 func (hwPhone HWPhone) call() {
@@ -18,12 +16,11 @@ func (hwPhone HWPhone) call() {
 type IPhone struct {
 }
 
-func (iphone IPhone) call(){
+func (iphone IPhone) call() {
 	fmt.Println("I am iphone, I can call you!")
 }
 
-
-func main(){
+func main() {
 	var phone Phone
 	phone = new(HWPhone)
 	phone.call()

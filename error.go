@@ -4,6 +4,7 @@ import (
 	//"errors"
 	"fmt"
 )
+
 //type error interface {
 //	Error() string
 //}
@@ -17,17 +18,16 @@ import (
 //	return 1, nil
 //}
 
-
-func main(){
+func main() {
 	//_, err := Sqrt(-1)
 	//if err != nil{
 	//	fmt.Println(err)
 	//}
 
-	if result, errorMsg := Divide(100, 10); errorMsg == ""{
+	if result, errorMsg := Divide(100, 10); errorMsg == "" {
 		fmt.Println("100/10 = ", result)
 	}
-	if _, errMsg := Divide(100, 0); errMsg != ""{
+	if _, errMsg := Divide(100, 0); errMsg != "" {
 		fmt.Println("errorMsg is: ", errMsg)
 	}
 }
@@ -37,7 +37,7 @@ type DivideError struct {
 	divider int
 }
 
-func (de *DivideError) Error() string{
+func (de *DivideError) Error() string {
 	strFormat := `
 	Cannot proceed, the divider is zero.
 	divedee: %d
@@ -46,8 +46,8 @@ func (de *DivideError) Error() string{
 	return fmt.Sprintf(strFormat, de.dividee)
 }
 
-func Divide(varDividee int, varDivider int)(result int, errorMsg string){
-	if varDivider == 0{
+func Divide(varDividee int, varDivider int) (result int, errorMsg string) {
+	if varDivider == 0 {
 		dData := DivideError{
 			dividee: varDividee,
 			divider: varDivider,
